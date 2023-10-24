@@ -6,6 +6,10 @@
 # extract files (already extracted)
 #tar -zxf libs.tar.gz
 
+# conda create env or use local python 
+#conda create -n tts-restful python=3.11
+#conda activate tts-restful
+
 # install libs and dependencies
 pip install -r libs/requirements.txt --no-index --find-links libs
 ```
@@ -13,6 +17,9 @@ pip install -r libs/requirements.txt --no-index --find-links libs
 2.  Run RESTful server
 
 ``` shell
+# change permission
+chmod 707 run.sh
+
 # run server
 ./run.sh
 
