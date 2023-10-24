@@ -26,8 +26,15 @@ vi main.log
 ### /tts
 
 -   `POST` : send TTS request
-    `json   {       'text': 'This is a test.',       'lang': 'es',       'gender': 0 // male : 0, female : 1   }`
-
+- `json body` :
+    ```json
+    {       
+        'text': 'This is a test.',
+        'lang': 'es',
+        'gender': 0 // male : 0, female : 1   
+    }
+    ```
+  
 ### /tts/:file_id
 
 -   `GET` : get wav file
