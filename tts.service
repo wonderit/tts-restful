@@ -1,0 +1,18 @@
+[Unit]
+Description=Service to run TTS RESTful API
+After=network.target
+StartLimitIntervalSec=100
+StartLimitBurst=5
+
+[Service]
+Restart=always
+RestartSec=10
+User=wonderit
+WorkingDirectory=/home/wonderit/workplace/tts
+Environment="PATH=/home/wonderit/workplace/tts/tts-env/bin"
+ExecStart=/home/wonderit/workplace/tts/tts-env/bin/python main.py
+StandardOutput=append:/home/wonderit/workplace/tts/stdout.log
+StandardError=append:/home/wonderit/workplace/tts/std_error.log
+
+[Install]
+WantedBy=multi-user.target

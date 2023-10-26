@@ -3,7 +3,7 @@ import json
 import requests
 
 
-url = 'http://127.0.0.1:5000/tts'
+url = 'http://127.0.1.1:5000/tts'
 
 input_parameters = {
 

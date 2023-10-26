@@ -1,2 +1,2 @@
 #!/bin/bash
-nohup python -u main.py > main.log &
+nohup ./tts/bin/python -u main.py > main.log &

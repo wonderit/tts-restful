@@ -22,7 +22,6 @@ app = FastAPI()
 
 PORT: int = 5000
 
-
 def save_wav(text, file_id, speaker_id, model):
     now = datetime.datetime.now()
     str_now = now.strftime('%Y-%m-%d')
@@ -44,12 +43,12 @@ def save_wav(text, file_id, speaker_id, model):
 
 @app.on_event("startup")
 def startup_event():
-    print("The port used for this app is", PORT)
+    print("App started")
 
 
 @app.post('/tts')
 async def request_tts(req: TtsRequest):
-    model = './voices/es_ES-sharvard-medium.onnx'
+    model = f'./voices/es_ES-sharvard-medium.onnx'
     file_id = shortuuid.uuid()
     result = save_wav(req.text, file_id, req.gender, model)
     return result
@@ -67,7 +66,7 @@ async def download_tts(file_id):
             "code": e.errno,
             "message": e.strerror
         }}
-
-
+#
+#
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=PORT)
+    uvicorn.run(app, host="0.0.0.0", port=PORT)
